@@ -40,7 +40,6 @@ void CreateMat::separat_pracket(string S)
 			if (S[i + 1] == ',')
 				i++;
 		}
-
 	}
 
 	if (S[1] == '[')
@@ -71,7 +70,6 @@ void CreateMat::subMatrix(string subS)
 	{
 		if (subS[i] == ';' || subS[i] == ']')
 		{
-
 			number_semicolon_brcket++;
 			row = subS.substr(flag + 1, i - flag - 1);
 			int num = 0; flag = i;
@@ -81,12 +79,9 @@ void CreateMat::subMatrix(string subS)
 					num++;
 				}
 			}
-			if (false /*num == 0*/)
-			{
-				;//matConcat[count].push_back() //it is an old mat
-			}
-			else if (row.size())
-			{    //if row ==0 continue
+			
+		 if (row.size())
+			{    
 				matConcat[count].push_back(*new vector<string>);
 				number_rows++;
 				int localflag = 0; string s; int flagfloat = 0;
@@ -104,7 +99,6 @@ void CreateMat::subMatrix(string subS)
 			}
 			if (row.size())flagvec++;
 		}
-
 	}
 	count++;
 	if (number_semicolon_brcket == number_rows) // so its complete matrix
@@ -112,7 +106,6 @@ void CreateMat::subMatrix(string subS)
 		semicolon_count -= number_semicolon_brcket - 1;/*number_semicolon_brcket its count ] too so we put -1 */
 
 		semicolone_colon_queue.push(',');
-
 	}
 	else
 		semicolone_colon_queue.push(';');
@@ -154,7 +147,6 @@ void CreateMat::match(vector<vector<string>> a, int flag)
 						finalMatrix.pop_back();
 					}
 				}
-
 				if (localflag == 0)
 					finalMatrix[i].push_back(a[i][j]);
 			}
@@ -184,7 +176,6 @@ void CreateMat::match(vector<vector<string>> a, int flag)
 				}
 			}
 		}
-
 		semicolone_colon_queue.pop();
 	}
 	else if (semicolone_colon_queue.front() == ';')
@@ -213,8 +204,3 @@ void CreateMat::match(vector<vector<string>> a, int flag)
 		semicolone_colon_queue.pop(); 
 	}
 }
-
-	CreateMat::~CreateMat()
-	{
-		
-	}

@@ -23,18 +23,15 @@ private:
 	int semicolon_count;
 	vector<vector<char>>brackts;
 	queue<char>colon;
-	stack<int>indx; int n = 0;
-public:
-	vector<vector<string>>finalMatrix;
-	CreateMat(string s, vector<CreateMat>input);
-	~CreateMat();
-	string getName();
-private:	
+	stack<int>indx; int n = 0;	
 	void separat_pracket(string S);
 	void subMatrix(string subS);
 	void concatenate();
 	void match(vector<vector<string>> a, int flag);
-
+public:
+	vector<vector<string>>finalMatrix;
+	CreateMat(string s, vector<CreateMat>input);
+	string getName();
 	
 	
 };
